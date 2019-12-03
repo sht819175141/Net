@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>.net与前端接口调试验证</h1>
+<script src="./jquery-1.8.3.min.js"></script>
+<script src="test.ts"></script>
+<script>
+    // $.post("http://192.168.1.38:5001/api/users/create/", {}, function (data) {
+    //     console.log(data)
+    // })
+    // $.get("http://192.168.3.39:5001/api/values/", function (data) {
+    //     console.log(data)
+    // })
+    // var obj = JSON.stringify({
+    //     MachineIP: "127.0.0.1",
+    //     AppTag: "4",
+    //     RequestInfo: {
+    //         StaffCode: "",
+    //         Password: "",
+    //         StaffCard: "01411"
+    //     },
+    // });
+    // console.log(obj)
+    // $.ajax({
+    //     url: "http://192.168.3.39:5001/api/values/",
+    //     type: "POST",
+    //     contentType: "application/json",
+    //     data: obj,
+    //     success:function (data) {
+    //           console.log(data)
+    //     },
+    //     error: function (error) {
+    //         console.log(error)
+    //     }
+    // })
+    var obj = JSON.stringify({
+        MachineIP: "127.0.0.1",
+        AppTag: "4",
+        RequestInfo: {
+            StaffCode: "",
+            Password: "",
+            StaffCard: "01411"
+        },
+    });
+    console.log(obj)
+    var obg = {
+        MachineIP: "127.0.0.1",
+        AppTag: "4",
+        RequestInfo: {
+            StaffCode: "",
+            Password: "",
+            StaffCard: "01411"
+        }
+    }
+    var obg2 = JSON.stringify(
+        {
+            "rootnodeguid": "c92b56c6-0cab-46be-9c02-93d46173023e",
+            "taskguid": "b6c31976-f1b4-4654-b731-c6b5291a9c89",
+            "taskdetailguid": "634b7175-697b-4418-ac2e-370556da9edc",
+            "msg": "",
+            "taskgroupguid": "4eea5297-ab04-494b-b7c9-2c815d37b6d0"
+        })
+
+    $.ajax({
+        url: "http://192.168.3.39:5001/api/values/",
+        type: "POST",
+        data: obg,
+        contentType: "application/json",
+        success: function (data) {
+            console.log("成功:")
+            console.log(data)
+        },
+        error: function (error) {
+            console.log("失败:")
+            console.log(error)
+        }
+    })
+    //
+    // function jsonp(url, callback) {
+    //     window.jsonp_callback = function (data) {
+    //         callback(data);
+    //     }
+    //     let s = document.createElement('script');
+    //
+    //     s.src = url + "?callback=jsonp_callback";
+    //     document.querySelector('body').appendChild(s);
+    // }
+    //
+    // jsonp("http://192.168.1.55:8007/jobselect/nodeuser/?guid=7c274980-712c-11e9-b95e-144f8aaac1e2&nodeguid=d049f38e-4556-40ab-a273-2bd95c777f68", function (data) {
+    //     console.log(data)
+    //     document.write(data)
+    // })
+
+
+</script>
+</body>
+</html>
